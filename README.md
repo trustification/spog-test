@@ -1,8 +1,30 @@
 # SPoG-test
-Automation tests for the SPoG UI
 
-This repo deals with UI automation tests for the UI part of the Trustification product.
-The infrastructure is Playwright and the language used is Python.
-Along the way there will be attempts to send these tests to the team running the Trustification repo (https://github.com/trustification/trustification)
-The purpose of this is to allow the Trustification team that is implementing REST API using Rust 
-code, to run the UI tests with their own tests in their pipeline and create a kind of integration tests.
+SPoG-test is a [Playwright-python](https://playwright.dev/python/ "Playwright-python") based framework to test [trustification](https://github.com/trustification/trustification.git "trustification") UI. 
+
+## Quick Start
+1. Clone the repository 
+
+```
+git clone https://github.com/trustification/spog-test.git
+cd spog-test
+```
+
+2. The shell script [run_spog_tests.sh](run_spog_tests.sh) is capable of setting up the virtual environment and installing the required packages to execute the Automation scripts. At the end of the execution the HTML reports are stored into `results` directory. To run the script, the user should pass trustification application URL, registered Username and Password.
+
+```
+sh run_spog_tests.sh -a https://staging.trustification.dev/ -u test -p user@123
+```
+
+By default, the above step would execute the tests under [/tests](tests) directory.
+
+The target tests directory and the results directory which can be changed with the command line arguments.
+
+```
+sh run_spog_tests.sh -a https://staging.trustification.dev/ -u test -p user@123 -r test_results_dir -t custom_tests_dir
+```
+ - [Playwright-python](https://playwright.dev/python/ "Playwright-python") is internally backed up with pytest. As an alternate to using the shell script run_spog_tests.sh, we can use python and pytest to directly install the requirements and execute the tests.
+ - Playwright by default executes the scripts in headless mode, In order to execute the tests on browsers run the command `pytest --headed`
+
+## Contributing
+See [CONTRIBUTING.md](CONTRIBUTING.md)
