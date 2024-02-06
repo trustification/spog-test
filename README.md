@@ -1,6 +1,6 @@
 # SPoG-test
 
-SPoG-test is a [Playwright-python](https://playwright.dev/python/ "Playwright-python") based framework to test [trustification](https://github.com/trustification/trustification.git "trustification") UI. 
+SPoG-test is a [Playwright-python](https://playwright.dev/python/ "Playwright-python") based framework to test [trustification](https://github.com/trustification/trustification.git "trustification") UI. The purpose of this repo is to execute and test the trustification UI, where the backend REST API is tested with [RUST scripts](https://github.com/trustification/trustification/tree/main/integration-tests/tests).  Along the way there will be attempts to execute these tests automatically against the Trustification repo. 
 
 ## Quick Start
 1. Clone the repository 
