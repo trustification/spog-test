@@ -10,14 +10,15 @@ def pytest_addoption(parser):
 
 @pytest.fixture(autouse=True)
 def setup_before_test(page: Page, request):
-    page.goto(request.config.getoption("--application"))
+    page.goto(request.config.getoption("--application"), timeout=50000)
     spog_login(page, request)
     yield
 
 
 def spog_login(page: Page, request):
-    if page.get_by_role("heading", name="Tracking consent").is_visible:
-        page.get_by_role("button", name="Deny").click()
+    button = page.query_selector('button[name="Deny"]')
+    if button:
+        button.click()
     page.get_by_label("Username").fill(request.config.getoption("--username"))
     page.get_by_label("Password").fill(request.config.getoption("--password"))
     page.get_by_role("button", name="Sign In").click()

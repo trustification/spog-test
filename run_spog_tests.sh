@@ -91,5 +91,5 @@ fi
 arg_handle "$@"
 set_env
 results_dir
-pytest $TEST_DIR --html $RESULTS/report.html --application $TRUST_APP_URL --username $TRUST_USER_NAME --password $TRUST_USER_PASSWORD
+pytest $TEST_DIR --headed --html $RESULTS/report.html --application $TRUST_APP_URL --username $TRUST_USER_NAME --password $TRUST_USER_PASSWORD
 set +e
