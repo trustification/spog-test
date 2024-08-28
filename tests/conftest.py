@@ -20,6 +20,6 @@ def spog_login(page: Page, request):
     if button:
         button.click()
     page.get_by_label("Username").fill(request.config.getoption("--username"))
-    page.get_by_label("Password").fill(request.config.getoption("--password"))
+    page.locator("#password").fill(request.config.getoption("--password"))
     page.get_by_role("button", name="Sign In").click()
     page.get_by_role("heading", name="Red Hat Trusted Profile").is_visible()
