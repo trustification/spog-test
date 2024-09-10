@@ -1,5 +1,9 @@
 venv/
 build/
 results/
+tests/screenshots/
 *.egg*
 **/__pycache__/
+/assets/
+.pytest_cache/
+report.html
