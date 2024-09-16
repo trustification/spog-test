@@ -2,7 +2,7 @@
  "spdxVersion": "SPDX-2.3",
  "dataLicense": "CC0-1.0",
  "SPDXID": "SPDXRef-DOCUMENT",
- "name": "registry.k8s.io/coredns/coredns:v1.9.3",
+ "name": "spog-spdx-sbom",
  "documentNamespace": "https://anchore.com/syft/image/registry.k8s.io/coredns/coredns-v1.9.3-feed6dea-b0bc-483a-be72-0c3229d8d3e6",
  "creationInfo": {
   "licenseListVersion": "3.19",

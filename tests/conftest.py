@@ -3,14 +3,13 @@ from playwright.sync_api import Page
 
 
 def pytest_addoption(parser):
-    parser.addoption("--application", action="store", help="Application URL")
     parser.addoption("--username", action="store", help="Login Username")
     parser.addoption("--password", action="store", help="Login Password")
 
 
 @pytest.fixture(autouse=True)
-def setup_before_test(page: Page, request):
-    page.goto(request.config.getoption("--application"), timeout=80000, wait_until="commit")
+def setup_before_test(page: Page, request, base_url):
+    page.goto('/', timeout=80000, wait_until="commit")
     spog_login(page, request)
     yield
 
