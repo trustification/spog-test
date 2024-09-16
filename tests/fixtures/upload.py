@@ -58,5 +58,13 @@ def verify_upload(page: Page,type:str,file_name):
     page.keyboard.type('This is a line of text')
     page.get_by_role("alert").get_by_text("Cannot edit in read-only editor").is_visible()
     # Verify Clear button clears the contents on the text area
+    page.locator('#file-submit').is_enabled()
     page.locator("#file-clear").click()
     file_is_not_loaded(page,type,article)
+
+def upload_invalid(page: Page, type:str, file_name):
+    type = type.upper()
+    file_path = get_file_path(file_name,'testdata/'+type.lower()+'/') 
+    drag_and_drop(page, file_path, "input[type='file']")
+    page.locator('#file-submit').is_disabled()
+    page.locator('#file-help-text').get_by_text(f'Failed to parse {type}').is_visible()

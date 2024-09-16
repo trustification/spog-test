@@ -11,3 +11,5 @@ def before_each(page: Page):
 def test_verify_csaf_upload(page: Page):
     verify_upload(page,"CSAF","valid.json") 
 
+def test_upload_invalid_csaf(page: Page):
+    upload_invalid(page,"CSAF","invalid.json")

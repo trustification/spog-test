@@ -10,3 +10,6 @@ def before_each(page: Page):
     
 def test_verify_sbom_upload(page: Page):
     verify_upload(page,"SBOM","syft.cyclonedx.json") 
+
+def test_upload_invalid_sbom(page: Page):
+    upload_invalid(page,"SBOM","invalid.cyclonedx.json")
